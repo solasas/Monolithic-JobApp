@@ -1,5 +1,6 @@
 package com.sashank.jobapp1.job;
 
+import com.sashank.jobapp1.company.Company;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,8 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+    @ManyToOne
+    private Company company;
 //JPA NEEDS DEFAULT CONSTRUCTOR WITHOOUT ANY PARAM
     public Job() {
     }
