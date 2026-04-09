@@ -1,5 +1,6 @@
 package com.sashank.jobapp1.company;
 
+import com.sashank.jobapp1.job.Job;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +39,15 @@ public class CompanyController {
            return new ResponseEntity<>("Company Not FounD",HttpStatus.NOT_FOUND);
        }
 
+    }
+    @GetMapping
+    public ResponseEntity<Company> getCompanyById(Long id){
+        Company company =companyService.getCompanyById(id);
+        if(company !=null){
+            return new ResponseEntity<>(company,HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
