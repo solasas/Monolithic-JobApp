@@ -29,7 +29,7 @@ public class CompanyController {
         companyService.createCompany(company);
         return new ResponseEntity<>("Company Added Sucessfullt",HttpStatus.CREATED);
     }
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCompany(@PathVariable Long id){
        boolean isDeleted= companyService.deleteCompany(id);
        if(isDeleted){
@@ -40,7 +40,7 @@ public class CompanyController {
        }
 
     }
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Company> getCompanyById(Long id){
         Company company =companyService.getCompanyById(id);
         if(company !=null){
