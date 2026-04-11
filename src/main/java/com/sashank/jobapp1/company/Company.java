@@ -2,6 +2,7 @@ package com.sashank.jobapp1.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sashank.jobapp1.job.Job;
+import com.sashank.jobapp1.review.Review;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,7 +18,8 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
-    //private List<Review> reviews;
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
     public Company() {
     }

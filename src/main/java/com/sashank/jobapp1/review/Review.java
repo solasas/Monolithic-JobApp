@@ -1,5 +1,7 @@
 package com.sashank.jobapp1.review;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sashank.jobapp1.company.Company;
 import jakarta.persistence.*;
 
 import java.lang.reflect.Type;
@@ -12,6 +14,9 @@ public class Review {
     private Long id;
     private String content;
     private int rating;
+    @JsonIgnore
+    @ManyToOne
+    private Company company;
 
     public Review(Long id, String content, int rating) {
         this.id = id;
